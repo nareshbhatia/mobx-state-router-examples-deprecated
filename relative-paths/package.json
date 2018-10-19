@@ -1,0 +1,43 @@
+{
+  "name": "relative-paths",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://archfirst.org/myapp",
+  "scripts": {
+    "start": "react-scripts start",
+    "prebuild": "rimraf deploy",
+    "build": "react-scripts build",
+    "postbuild": "npm run copy-build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "copy-build": "run-script-os",
+    "copy-build:win32": "echo '***** Copy build/* to deploy/myapp *****'",
+    "copy-build:darwin:linux": "mkdir deploy && cp -R ./build ./deploy && mv ./deploy/build ./deploy/myapp",
+    "serve": "node server",
+    "format": "prettier --write '{src,server}/**/*.js'"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "history": "^4.7.2",
+    "mobx": "^5.5.1",
+    "mobx-react": "^5.3.2",
+    "mobx-state-router": "^4.0.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3",
+    "react-scripts": "2.0.5",
+    "rimraf": "^2.6.2",
+    "run-script-os": "^1.0.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
