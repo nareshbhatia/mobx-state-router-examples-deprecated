@@ -2,10 +2,9 @@ import React from 'react';
 import { inject } from 'mobx-react';
 import { RouterView } from 'mobx-state-router';
 import { Header } from './header';
-
-const HomePage = () => <h1>Home</h1>;
-const AboutPage = () => <h1>About</h1>;
-const NotFoundPage = () => <h1>Page Not Found</h1>;
+import { AboutPage } from './pages/about-page';
+import { HomePage } from './pages/home-page';
+import { NotFoundPage } from './pages/not-found-page';
 
 const viewMap = {
     home: <HomePage />,
@@ -22,12 +21,7 @@ export const Shell = inject('rootStore')(
             return (
                 <React.Fragment>
                     <Header />
-                    <main>
-                        <RouterView
-                            routerStore={routerStore}
-                            viewMap={viewMap}
-                        />
-                    </main>
+                    <RouterView routerStore={routerStore} viewMap={viewMap} />
                 </React.Fragment>
             );
         }

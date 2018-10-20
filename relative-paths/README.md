@@ -25,7 +25,7 @@ Now point your browser to http://localhost:3000/.
 Production
 ----------
 ```bash
-# build the client first
+# Build the client first
 # This creates a deploy directory at 'deploy' with the app at 'deploy/myapp' 
 $ yarn build
 
