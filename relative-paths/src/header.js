@@ -4,12 +4,16 @@ import './header.css';
 
 export const Header = () => (
     <header>
-        <ul>
+        <ul className="navbar">
             <li>
-                <RouterLink routeName="home">Home</RouterLink>
+                <RouterLink routeName="home" activeClassName="link--active">
+                    Home
+                </RouterLink>
             </li>
             <li>
-                <RouterLink routeName="about">About</RouterLink>
+                <RouterLink routeName="about" activeClassName="link--active">
+                    About
+                </RouterLink>
             </li>
         </ul>
     </header>
