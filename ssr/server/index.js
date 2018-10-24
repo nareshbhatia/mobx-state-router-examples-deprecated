@@ -1,3 +1,9 @@
+// -----------------------------------------------------------------------------
+// Load environment variables from the .env file before doing anything else
+// -----------------------------------------------------------------------------
+import { config as envConfig } from 'dotenv';
+envConfig();
+
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
@@ -11,11 +17,11 @@ import { StaticAdapter } from 'mobx-state-router';
 import App from '../src/app';
 import { RootStore } from '../src/stores';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
 
 // Valid router paths should be served by this handler
-app.get(['/', '/github'], (req, res) => {
+app.get(['/', '/contentful', '/github'], (req, res) => {
     // Point to the html file created by CRA's build tool
     const indexFile = path.resolve('./build/index.html');
 

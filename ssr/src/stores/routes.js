@@ -7,6 +7,14 @@
 export const routes = [
     { name: 'home', pattern: '/' },
     {
+        name: 'contentful',
+        pattern: '/contentful',
+        onEnter: (fromState, toState, routerStore) => {
+            const itemStore = routerStore.rootStore.itemStore;
+            return itemStore.loadFeaturedItems();
+        }
+    },
+    {
         name: 'github',
         pattern: '/github',
         onEnter: (fromState, toState, routerStore) => {

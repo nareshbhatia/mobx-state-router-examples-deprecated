@@ -7,12 +7,20 @@ export const Header = () => (
         <ul className="navbar">
             <li>
                 <RouterLink routeName="home" activeClassName="link--active">
-                    Static Page
+                    Static Content
                 </RouterLink>
             </li>
             <li>
                 <RouterLink routeName="github" activeClassName="link--active">
-                    Dynamic Page
+                    Github Content
+                </RouterLink>
+            </li>
+            <li>
+                <RouterLink
+                    routeName="contentful"
+                    activeClassName="link--active"
+                >
+                    Contentful Content
                 </RouterLink>
             </li>
         </ul>
