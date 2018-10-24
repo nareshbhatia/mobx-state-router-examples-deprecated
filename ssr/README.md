@@ -1,6 +1,8 @@
 Server-side Rendering (SSR)
 ===========================
 
+![Screen Shot](assets/screen-shot.png)
+
 Server-side rendering is a technique for rendering a single-page app on the server and then sending the fully rendered page to the client. This is followed by sending the app's CSS and JavaScript. Once the app receives the JavaScript, it takes over the execution of the app. This gives the perception of a faster page load and some SEO benefits. For a quick introduction to SSR, read [this article](https://alligator.io/react/server-side-rendering/).
 
 This example shows how server-side rendering can be implemented using mobx-state-router. We have created a simple node server that accepts requests for a single-page app. The request can come for any route, such as '/' or '/github'. The server renders the requested route and returns the fully rendered page to the client.
