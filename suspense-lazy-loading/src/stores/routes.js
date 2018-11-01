@@ -11,7 +11,8 @@ export const routes = [
         pattern: '/github',
         onEnter: (fromState, toState, routerStore) => {
             const repoStore = routerStore.rootStore.repoStore;
-            return repoStore.loadRepos();
+            repoStore.loadRepos();
+            return Promise.resolve();
         }
     },
     { name: 'notFound', pattern: '/not-found' }

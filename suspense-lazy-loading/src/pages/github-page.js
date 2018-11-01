@@ -1,20 +1,22 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { TitleLink } from '../components';
+import { LoadingWrapper, TitleLink } from '../components';
 import './github-page.css';
 
 export const GitHubPage = inject('rootStore')(
     observer(({ rootStore }) => (
-        <div className="content">
-            <h1 className="title">Top JavaScript Repos</h1>
-            <ul className="repo-list">
-                {rootStore.repoStore.repos.map(repo => (
-                    <li key={repo.node_id}>
-                        <Repo repo={repo} />
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <LoadingWrapper loadingState={rootStore.repoStore.loadingState}>
+            <div className="content">
+                <h1 className="title">Top JavaScript Repos</h1>
+                <ul className="repo-list">
+                    {rootStore.repoStore.repos.map(repo => (
+                        <li key={repo.node_id}>
+                            <Repo repo={repo} />
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </LoadingWrapper>
     ))
 );
 

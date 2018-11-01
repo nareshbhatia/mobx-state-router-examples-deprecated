@@ -1,30 +1,37 @@
 import { action, decorate, observable } from 'mobx';
+import { LoadingState } from './loading-state';
 
 export class RepoStore {
     rootStore;
-    loading;
+    loadingState;
     repos;
 
     constructor(rootStore) {
         this.rootStore = rootStore;
+        this.loadingState = new LoadingState();
+        this.repos = [];
     }
 
     loadRepos() {
         const { githubService } = this.rootStore.services;
-        this.loading = true;
-        return githubService.fetchTopRepos().then(this.initialize);
+        this.loadingState.start();
+        return githubService
+            .fetchTopRepos()
+            .then(this.initialize)
+            .catch(error => {
+                this.loadingState.fail(error);
+            });
     }
 
     initialize = repos => {
         this.repos = repos;
-        this.loading = false;
+        this.loadingState.end();
         return true;
     };
 }
 
 decorate(RepoStore, {
-    loading: observable,
+    loadingState: observable,
     repos: observable.ref,
-    loadRepos: action,
     initialize: action
 });
