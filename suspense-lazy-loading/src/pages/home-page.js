@@ -2,7 +2,7 @@ import React from 'react';
 import orderList from '../assets/order-list.png';
 import './home-page.css';
 
-export const HomePage = () => (
+const HomePage = () => (
     <div className="content">
         <h1 className="title">Sharing UI Components with Yarn Workspaces</h1>
 
@@ -33,3 +33,5 @@ export const HomePage = () => (
         <img src={orderList} alt="Order List" className="home__image" />
     </div>
 );
+
+export default HomePage;

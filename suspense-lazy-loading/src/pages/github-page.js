@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { LoadingWrapper, TitleLink } from '../components';
 import './github-page.css';
 
-export const GitHubPage = inject('rootStore')(
+const GitHubPage = inject('rootStore')(
     observer(({ rootStore }) => (
         <LoadingWrapper loadingState={rootStore.repoStore.loadingState}>
             <div className="content">
@@ -32,3 +32,5 @@ const Repo = ({ repo }) => (
         </p>
     </React.Fragment>
 );
+
+export default GitHubPage;

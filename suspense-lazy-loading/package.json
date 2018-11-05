@@ -17,8 +17,8 @@
     "mobx": "4.4.1",
     "mobx-react": "^5.3.4",
     "mobx-state-router": "^4.0.3",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
     "prettier": "^1.14.3",
