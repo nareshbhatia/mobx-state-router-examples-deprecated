@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, createElement } from 'react';
 import { inject, observer } from 'mobx-react';
+import { CenteredMessage } from './components';
 import { Header } from './header';
 
 const viewMap = {
@@ -21,7 +22,13 @@ export const Shell = inject('rootStore')(
                 return (
                     <React.Fragment>
                         <Header />
-                        <Suspense fallback={<></>}>
+                        <Suspense
+                            fallback={
+                                <CenteredMessage>
+                                    Loading {routeName} component
+                                </CenteredMessage>
+                            }
+                        >
                             {createElement(view)}
                         </Suspense>
                     </React.Fragment>

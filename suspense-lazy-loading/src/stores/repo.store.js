@@ -8,7 +8,7 @@ export class RepoStore {
 
     constructor(rootStore) {
         this.rootStore = rootStore;
-        this.loadingState = new LoadingState();
+        this.loadingState = new LoadingState('repos');
         this.repos = [];
     }
 

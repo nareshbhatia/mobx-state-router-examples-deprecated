@@ -1,24 +1,16 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { CenteredContainer, Headline } from '..';
+import { CenteredMessage } from '..';
 
 export const LoadingWrapper = observer(({ loadingState, children }) => {
-    const { loading, error } = loadingState;
+    const { name, loading, error } = loadingState;
 
     if (loading) {
-        return (
-            <CenteredContainer>
-                <Headline>Loading...</Headline>
-            </CenteredContainer>
-        );
+        return <CenteredMessage>Loading {name}</CenteredMessage>;
     }
 
     if (error) {
-        return (
-            <CenteredContainer>
-                <Headline>{error.message}</Headline>
-            </CenteredContainer>
-        );
+        return <CenteredMessage>{error.message}</CenteredMessage>;
     }
 
     return <React.Fragment>{children}</React.Fragment>;

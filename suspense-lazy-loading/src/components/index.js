@@ -1,3 +1,4 @@
+export { CenteredMessage } from './basics/centered-message';
 export { CenteredContainer } from './basics/containers';
 export { TitleLink } from './basics/title-link';
 export { Headline } from './basics/typography';
