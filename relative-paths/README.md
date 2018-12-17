@@ -1,7 +1,7 @@
 Hosting an app at a relative path
 =================================
 
-This example shows how to host an app at a relative path instead of the server root, e.g. at `http://archfirst.org/myapp` instead of `http://archfirst.org/myapp`. The trick to doing this is to set the `basename` option when creating the `history` object.
+This example shows how to host an app at a relative path instead of the server root, e.g. at `http://archfirst.org/myapp` instead of `http://archfirst.org`. The trick to doing this is to set the `basename` option when creating the `history` object.
 
 In this example, we are setting `homepage` in package.json so that the app is hosted at `/myapp` instead of root:
 
