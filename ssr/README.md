@@ -37,7 +37,7 @@ Note that initializing the router with the requested route will also load any da
 Once the application's state is initialized, the server proceeds to render the page. This is done by calling `ReactDOMServer.renderToString()`.
 
 ### Send the rendered page and the state to the client
-Once the page is rendered, the server injects it into `index.html`. In addition, it serializes the application state (`rootStore.serialize()`) and injects it right after the `<body>` tag. This is super important. If we didn't do this, the router on the client side would start from it's initial state and go through a full transition to the requested route (including fetching fresh data). We don't want to do this - the server has already done it. By sending the state and the letting the client initialize itself, we prevent the client-side router from going through a full unnecessary transition.
+Once the page is rendered, the server injects it into `index.html`. In addition, it serializes the application state (`rootStore.serialize()`) and injects it right after the `<body>` tag. This is super important. If we didn't do this, the router on the client side would start from it's initial state and go through a full transition to the requested route (including fetching fresh data). We don't want to do this - the server has already done it. By sending the state and letting the client initialize itself, we prevent the client-side router from going through a full unnecessary transition.
 
 Note that as part of the modified `index.html`, the CSS and JavaScript are also sent down. However, since the JavaScript is sent after the HTML markup, the full page is rendered even before the JavaScript starts loading.
 
